@@ -1,0 +1,40 @@
+/* Yläpalkin tyylit */
+.navbar {
+    display: flex; /* Käytetään flexboxia keskittämiseen */
+    justify-content: center; /* Keskitetään sisältö vaakasuunnassa */
+    align-items: center; /* Keskitetään sisältö pystysuunnassa */
+    background-color: #ec55f4; /* Taustaväri yläpalkille */
+    height: 60px; /* Korkeus yläpalkille */
+    color: white; /* Tekstin väri */
+    font-size: 20px; /* Tekstin koko */
+}
+
+.site-header {
+    text-align: center;
+    color: #b612bf;
+    display: flex; /* Flexbox keskittämiseen */
+    flex-direction: column; /* Sisältö pystysuunnassa */
+    justify-content: center; /* Keskitetään pystysuunnassa */
+    align-items: center; /* Keskitetään vaakasuunnassa */
+    height: 200px; /* Headerin korkeus */
+    margin: 0 auto; /* Keskitetään mahdolliset marginaalit */
+}
+
+.site-title {
+    font-size: 42px;
+}
+
+.site-quote {
+    font-size: 15px;
+}
+
+.introduction, .interests, .reiki {
+    margin: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.site-footer {
+    text-align: center;
+    margin-top: 20px;
+}

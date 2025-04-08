@@ -1,26 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinin sivut</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Header taustakuva ja läpinäkyvä kerros */
+        .site-header {
+            position: relative;
+            background: url('Silmä.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 1em 0.5em;
+            text-align: center;
+        }
+
+        .site-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Tumma läpinäkyvä kerros */
+            z-index: 1;
+        }
+
+        .site-header > * {
+            position: relative;
+            z-index: 2; /* Nostetaan sisältö läpinäkyvän kerroksen yläpuolelle */
+        }
+
+        .site-title {
+            font-size: 2em; /* Pienennetään fonttikokoa */
+            font-weight: bold;
+            color: #ffffff; /* Valkoinen teksti */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Syvempi varjostus */
+            animation: bounce 2s infinite; /* Pomppiva animaatio */
+        }
+
+        .site-quote {
+            color: #f8d7ff; /* Vaalea pinkki */
+            font-weight: bold; /* Korostetaan tekstiä */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Varjostus */
+        }
+
+        /* Korttityyli osioille */
+        section {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 1em 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    }
+
+        /* Navigaation hover-efektit */
+        .navbar .dropbtn:hover {
+            background-color: #ff69b4; /* Hover-tilan taustaväri */
+            color: #ffffff; /* Hover-tilan fontin väri */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Siirtymä hover-efekteille */
+        }
+
+        /* Navigaation fonttien luettavuus ja hover-efektit */
+        .navbar .dropbtn {
+            font-size: 1.2em; /* Suurempi fonttikoko */
+            font-weight: bold; /* Lihavoitu teksti */
+            color: #ffffff; /* Valkoinen fonttiväri */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Varjostus parantaa luettavuutta */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Siirtymä hover-efekteille */
+        }
+
+        /* Animaatio osioille */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animaatio osioiden ilmestymiseen */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsiivisuus: pienennetään fonttikokoa pienillä näytöillä */
+        @media (max-width: 768px) {
+            .navbar .dropbtn {
+                font-size: 1em; /* Pienempi fonttikoko pienemmillä näytöillä */
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Sinin Sivut</h1>
-        <p>"The more you know, the more you realize you don't know."</p>
-        <p>"Live as if you were to die tomorrow, learn as if you were to live forever."</p>
-        <p>"Curiosity is the wick in the candle of learning."</p>
+    <header class="site-header">
+        <h1 class="site-title">Sinin Sivut</h1>
+        <p class="site-quote">"The more you know, the more you realize you don't know."</p>
+        <p class="site-quote">"Live as if you were to die tomorrow, learn as if you were to live forever."</p>
     </header>
-    
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="dropdown">
-            <button class="dropbtn">Valokuvia</button>
+            <button class="dropbtn">Ottamiani kuvia</button>
             <div class="dropdown-content">
-                <a href="Valokuvia.html" title="Valokuvia">Maisemat</a>
-                <a href="Polkkatukka_240222.jpg">Selfiet</a>
-                <a href="tekoälykuvat.html">Tekoälykuvat</a>
+                <a href="maisemat.html" title="Maisemat">Maisemat</a>
+                <a href="selfiet2.html">Selfiet</a>
+                <a href="AI kuvat.html">Tekoälykuvat</a>
+                <a href="harrastukset.html">Harrastukset</a>
             </div>
         </div>
         <div class="dropdown">
@@ -38,11 +147,10 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Linkkejä</button>
+            <button class="dropbtn">Itsetutkiskelun tueksi</button>
             <div class="dropdown-content">
                 <a href="https://www.reikiry.fi/3">Reiki</a>
                 <a href="https://youtu.be/6H0XhGe14Zc?si=1yxjyZBw3S0h9aS5">Tarot-kurssi osa 1</a>
-                <a href="https://www.astro.fi/ target="_blank">Astro</a>
                 <a href="https://astralhoroskooppi.fi/rakkaushoroskooppi-2025/" target="_blank">ASTRAL</a>
                 <a href="https://astro.fi/astrologinen_kartta" target="_blank">Oman tähtikartan luominen</a>
                 <a href="https://astro.fi/future/weeklyForecast">Viikkohoroskooppi</a>
@@ -50,17 +158,27 @@
             </div>
         </div>
     </nav>
-    
     <main>
-        <p>Olen Sini ja pidän itseäni ikuisena opiskelijana. Näille sivuille olen koonnut joitakin niiistä asioista, jotka kiinnostavat minua tällä hetkellä. aina kokenut, että maailmassa on niin paljon kiinnostavia asioita, että koko eliniässä ei ole tarpeeksi aikaa oppia kaikkea, mikä kiinnostaisi :).</p>
-        <p>Olen viime vuosina kiinnostunut itsetutkiskelusta ja käyttänyt sen välineinä Reikin lisäksi mm.binuraalisia frekvenssejä, astrologiaa, Tarot-kortteja ja wiccalaisuutta ja energiahoitoja.
-        <p>Valmistuin viime vuonna Usui Reiki II-tason hoitajaksi ja olen siten pätevä antamaan mm.perinteistä Reiki-energiahoitoa, kaukoReikiä ja tekemään chakrapuhdistuksia.</p>
-        <p>Reiki on universaalia elämänenergiaa ja suuntautauu itse sinne, missä sitä eniten tarvitaan. Reiki ei voi vahingoittaa millään tavalla ja sillä voidaan ihmisten lisäksi hoitaa myös vaikka lemmikkejä ja kasveja tai sitä voidaan ladata johonkin esineeseen, kuten amulettiin.</p>           
+        <section class="introduction">
+            <p>Olen Sini ja teen näitä sivuja projektina Digimuuntamo 1-kurssilla.</p>
+            <p>Esittelen itseäni ja harrastuksiani mm.ottamieni valokuvien muodossa.
+            Pidän itseäni ikuisena opiskelijana ja "Kiinnostuksen kohteita"-linkkeihin olen koonnut joitakin itseäni kiinnostavista asioista.
+            Olen aina kokenut, että maailmassa on niin paljon kiinnostavia asioita, että koko eliniässä ei ole tarpeeksi aikaa ottaa selvää kaikesta, mikä kiinnostaisi 😄.</p>
+
+        </section>
+        <section class="interests">
+            <p>Olen viime vuosina kiinnostunut itsetutkiskelusta ja käyttänyt sen välineinä mm. meditaatiota ja energiahoitoja kristalleilla tai ilman sekä <a href="https://www.marttajemina.com/post/mita-ovat-binaural-beats">binuraalisia frekvenssejä</a>, <a href="https://www.astro.fi/" target="_blank">astrologiaa</a>, <a href="https://fi.wikipedia.org/wiki/Wicca">wiccalaisuutta</a> ja <a href="https://tiiakoskinen.com/mita-on-varjotyo/">varjotyöskentelyä</a>. 
+            "Itsetutkiskelun tueksi"-linkeistä löydät joitakin sivustoja, joista on ollut itselleni hyötyä henkilökohtaisen kehitykseni matkalla. Toivon, että sinäkin voisit löytää niistä jotain itseäsi kiinnostavaa☺️.</p>
+        </section>
+        <section class="reiki">
+            <p>Valmituin viime vuonna Usui Reiki II-tason hoitajaksi ja olen siten pätevä antamaan mm. perinteistä <a href="https://www.onnivoima.fi/reiki/">Reiki-energiahoitoa</a>, kaukoReikiä ja tekemään chakrapuhdistuksia. Reiki on universaalia elämänenergiaa ja suuntautuu itse sinne, missä sitä eniten tarvitaan. Reiki ei voi vahingoittaa millään tavalla ja sillä voidaan ihmisten lisäksi hoitaa myös vaikka lemmikkejä ja kasveja tai sitä voidaan ladata johonkin esineeseen, kuten amulettiin.
+            <p>Jos kiinnostuit Reiki-hoidosta, voit ottaa minuun yhteyttä sivun alareunan linkistä ja voin kertoa energiahoidoista enemmän. 
+            Tämän sivuston kautta varatuista energiahoidoista annan 25% alennuksen ja saat halutessasi samalla ilmaisen chakrahoidon, jossa avaan, tasapainotan ja puhdistan 7 pääenergiakeskusta 🙏🏻.</p>
+        </section>
     </main>
-
-    <footer>
-        
+    <footer class="site-footer">
+        <p>© Sinin sivut 2025</p>
+        <p style="color: #e812d9;">Jos kysyttävää, tai haluat kokeilla Reiki-hoitoa, niin laita <a href="mailto:siniliimatainen7@gmail.com">meiliä</a></p>
     </footer>
-
-</body>
+</body> 
 </html>
